@@ -1,1 +1,1 @@
-# Gambler-Ruin
+# Gambler's Ruin Theory
