@@ -1,3 +1,16 @@
+import { useState } from "react";
+
+import ParameterPanel from "./ParameterPanel";
+
 export default function App() {
-  return <h1>Gambler's Ruin</h1>;
+  const [result, setResult] = useState(null);
+
+  return (
+    <div className="app-shell">
+      <ParameterPanel onResult={setResult} />
+      <main className="main-content">
+        <div id="results" data-has-result={result ? "true" : "false"} />
+      </main>
+    </div>
+  );
 }
