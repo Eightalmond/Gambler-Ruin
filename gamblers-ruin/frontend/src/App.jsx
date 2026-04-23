@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import GrowthRateChart from "./GrowthRateChart";
 import KellyPanel from "./KellyPanel";
 import ParameterPanel, { buildInitialParams } from "./ParameterPanel";
 import PathsChart, { StatsBar } from "./PathsChart";
@@ -11,6 +12,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [activePreset, setActivePreset] = useState(null);
+  const liveKellyFraction = params.p - (1 - params.p);
 
   async function runSimulation(nextParams = params) {
     setIsLoading(true);
@@ -75,11 +77,23 @@ export default function App() {
                 simulated_ruin_rate={result.simulated_ruin_rate}
               />
               <PathsChart result={result} />
+              <GrowthRateChart
+                p={params.p}
+                bet_fraction={params.bet_fraction}
+                kelly_fraction={liveKellyFraction}
+              />
             </div>
           ) : (
-            <div className="results-empty">
-              <p className="results-empty__eyebrow">Ready</p>
-              <h2>Run a simulation to see the bankroll paths.</h2>
+            <div className="results-stack">
+              <div className="results-empty">
+                <p className="results-empty__eyebrow">Ready</p>
+                <h2>Run a simulation to see the bankroll paths.</h2>
+              </div>
+              <GrowthRateChart
+                p={params.p}
+                bet_fraction={params.bet_fraction}
+                kelly_fraction={liveKellyFraction}
+              />
             </div>
           )}
         </div>
