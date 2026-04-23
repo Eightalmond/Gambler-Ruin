@@ -1,6 +1,4 @@
-import { useState } from "react";
-
-const FIELDS = [
+export const FIELDS = [
   {
     key: "p",
     label: "Win Probability",
@@ -43,7 +41,7 @@ const FIELDS = [
   },
 ];
 
-function buildInitialParams() {
+export function buildInitialParams() {
   return Object.fromEntries(
     FIELDS.map((field) => [field.key, field.defaultValue]),
   );
@@ -57,11 +55,13 @@ function formatValue(fieldKey, value) {
   return String(value);
 }
 
-export default function ParameterPanel({ onResult }) {
-  const [params, setParams] = useState(buildInitialParams);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
-
+export default function ParameterPanel({
+  params,
+  onParamsChange,
+  onRunSimulation,
+  isLoading,
+  error,
+}) {
   function updateParam(field, rawValue) {
     const nextValue =
       field.key === "n_paths" ||
@@ -70,41 +70,10 @@ export default function ParameterPanel({ onResult }) {
         ? Number.parseInt(rawValue, 10)
         : Number.parseFloat(rawValue);
 
-    setParams((current) => ({
+    onParamsChange((current) => ({
       ...current,
       [field.key]: Number.isNaN(nextValue) ? field.min : nextValue,
     }));
-  }
-
-  async function runSimulation() {
-    setIsLoading(true);
-    setError("");
-
-    try {
-      const response = await fetch("http://localhost:8000/simulate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(params),
-      });
-
-      if (!response.ok) {
-        throw new Error("Simulation request failed");
-      }
-
-      const result = await response.json();
-      onResult({
-        ...result,
-        starting_capital: params.starting_capital,
-        target: params.target,
-      });
-    } catch (caughtError) {
-      setError(caughtError.message || "Unable to run simulation");
-      onResult(null);
-    } finally {
-      setIsLoading(false);
-    }
   }
 
   return (
@@ -148,7 +117,7 @@ export default function ParameterPanel({ onResult }) {
       <button
         className="run-button"
         type="button"
-        onClick={runSimulation}
+        onClick={() => onRunSimulation(params)}
         disabled={isLoading}
       >
         {isLoading ? "Running..." : "Run Simulation"}

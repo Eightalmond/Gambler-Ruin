@@ -127,6 +127,7 @@ input {
 
 .main-content {
   margin-left: 280px;
+  margin-right: 220px;
   min-height: 100vh;
   padding: 36px;
 }
@@ -238,6 +239,65 @@ input {
   height: 540px;
 }
 
+.presets-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 220px;
+  height: 100vh;
+  padding: 28px 18px;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 10, 10, 0.96);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.presets-panel__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.preset-card {
+  width: 100%;
+  padding: 14px 14px 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid transparent;
+  border-radius: 16px;
+  background: #131313;
+  color: #ffffff;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.preset-card:hover {
+  background: #1a1a1a;
+  transform: translateY(-1px);
+}
+
+.preset-card--active {
+  border-left-color: #00ff9f;
+}
+
+.preset-card__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.98rem;
+}
+
+.preset-card__description {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
 @media (max-width: 800px) {
   .parameter-panel {
     position: static;
@@ -249,6 +309,7 @@ input {
 
   .main-content {
     margin-left: 0;
+    margin-right: 0;
     padding: 20px;
   }
 
@@ -270,5 +331,13 @@ input {
 
   .chart-wrapper {
     height: 360px;
+  }
+
+  .presets-panel {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 }
