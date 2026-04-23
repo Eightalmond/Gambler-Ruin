@@ -94,7 +94,11 @@ export default function ParameterPanel({ onResult }) {
       }
 
       const result = await response.json();
-      onResult(result);
+      onResult({
+        ...result,
+        starting_capital: params.starting_capital,
+        target: params.target,
+      });
     } catch (caughtError) {
       setError(caughtError.message || "Unable to run simulation");
       onResult(null);

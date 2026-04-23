@@ -8,6 +8,13 @@ From the project root:
 docker compose up --build
 ```
 
+If you add a new frontend package later, restart the containers so Docker picks it up:
+
+```bash
+docker compose down
+docker compose up --build
+```
+
 Then open:
 
 - Frontend: `http://localhost:5173`
