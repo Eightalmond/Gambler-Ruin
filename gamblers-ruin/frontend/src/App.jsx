@@ -45,6 +45,11 @@ export default function App() {
     }
   }
 
+  function handleParamsChange(updater) {
+    setActivePreset(null);
+    setParams(updater);
+  }
+
   function handleSelectPreset(preset) {
     const nextParams = {
       ...params,
@@ -58,9 +63,13 @@ export default function App() {
 
   return (
     <div className="app-shell">
+      <header className="top-bar">
+        <div className="top-bar__title">GAMBLER&apos;S RUIN</div>
+        <div className="top-bar__subtitle">Multiplicative Betting Simulator</div>
+      </header>
       <ParameterPanel
         params={params}
-        onParamsChange={setParams}
+        onParamsChange={handleParamsChange}
         onRunSimulation={runSimulation}
         isLoading={isLoading}
         error={error}
@@ -68,7 +77,7 @@ export default function App() {
       <main className="main-content">
         <div id="results" data-has-result={result ? "true" : "false"}>
           {result ? (
-            <div className="results-stack">
+            <div className="results-stack results-stack--visible">
               <StatsBar result={result} />
               <KellyPanel
                 kelly_fraction={result.kelly_fraction}
@@ -84,16 +93,13 @@ export default function App() {
               />
             </div>
           ) : (
-            <div className="results-stack">
-              <div className="results-empty">
-                <p className="results-empty__eyebrow">Ready</p>
-                <h2>Run a simulation to see the bankroll paths.</h2>
+            <div className="results-empty results-empty--full">
+              <div className="results-empty__copy">
+                <h2>Run a simulation to see results</h2>
+                <p>
+                  Adjust parameters on the left or pick a scenario on the right
+                </p>
               </div>
-              <GrowthRateChart
-                p={params.p}
-                bet_fraction={params.bet_fraction}
-                kelly_fraction={liveKellyFraction}
-              />
             </div>
           )}
         </div>

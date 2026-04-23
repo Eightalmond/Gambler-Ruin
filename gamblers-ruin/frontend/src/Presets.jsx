@@ -33,7 +33,7 @@ const PRESETS = [
 
 export default function Presets({ onSelectPreset, activePreset }) {
   return (
-    <aside className="presets-panel">
+    <aside className="presets-panel app-sidebar">
       <div className="presets-panel__header">
         <p className="parameter-panel__eyebrow">Scenarios</p>
       </div>

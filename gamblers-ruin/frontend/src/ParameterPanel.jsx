@@ -77,7 +77,7 @@ export default function ParameterPanel({
   }
 
   return (
-    <aside className="parameter-panel">
+    <aside className="parameter-panel app-sidebar">
       <div className="parameter-panel__header">
         <p className="parameter-panel__eyebrow">Controls</p>
         <h1>Gambler&apos;s Ruin</h1>
@@ -115,7 +115,7 @@ export default function ParameterPanel({
       </div>
 
       <button
-        className="run-button"
+        className={`run-button${isLoading ? " run-button--loading" : ""}`}
         type="button"
         onClick={() => onRunSimulation(params)}
         disabled={isLoading}

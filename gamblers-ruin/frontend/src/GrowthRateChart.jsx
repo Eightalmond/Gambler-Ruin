@@ -79,10 +79,10 @@ export default function GrowthRateChart({ p, bet_fraction, kelly_fraction }) {
 
   return (
     <section className="growth-panel">
-      <div className="chart-card">
+      <div className="chart-card dashboard-card">
         <div className="chart-card__header">
           <div>
-            <p className="chart-card__eyebrow">Growth Curve</p>
+            <p className="section-eyebrow">Growth Rate Curve</p>
             <h2>Why Overbetting Breaks Compounding</h2>
           </div>
         </div>
@@ -152,7 +152,7 @@ export default function GrowthRateChart({ p, bet_fraction, kelly_fraction }) {
                   label={{ value: "Kelly f*", fill: "#00ff9f", position: "insideTopLeft" }}
                 />
               ) : null}
-              {doubleKelly > 0 ? (
+              {kelly_fraction > 0 && doubleKelly > 0 ? (
                 <ReferenceLine
                   x={Math.min(doubleKelly, MAX_FRACTION)}
                   stroke="#ffd700"

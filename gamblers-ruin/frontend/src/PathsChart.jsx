@@ -19,7 +19,7 @@ const OUTCOME_COLORS = {
 };
 
 function toPercent(value) {
-  return `${(value * 100).toFixed(1)}%`;
+  return `${(value * 100).toFixed(2)}%`;
 }
 
 function buildChartData(paths) {
@@ -51,10 +51,10 @@ export default function PathsChart({ result }) {
 
   return (
     <section className="results-panel">
-      <div className="chart-card">
+      <div className="chart-card dashboard-card">
         <div className="chart-card__header">
           <div>
-            <p className="chart-card__eyebrow">Simulation Paths</p>
+            <p className="section-eyebrow">Simulation Paths</p>
             <h2>Bankroll Over Time</h2>
           </div>
           <p className="chart-card__meta">

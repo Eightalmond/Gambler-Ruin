@@ -1,5 +1,5 @@
 function formatPercent(value) {
-  return `${(value * 100).toFixed(1)}%`;
+  return `${(value * 100).toFixed(2)}%`;
 }
 
 function getBetSizeColor(betFraction, kellyFraction) {
@@ -46,7 +46,10 @@ export default function KellyPanel({
   simulated_ruin_rate,
 }) {
   return (
-    <section className="kelly-panel">
+    <section className="kelly-panel dashboard-card">
+      <div className="section-header">
+        <p className="section-eyebrow">Kelly & Risk Metrics</p>
+      </div>
       <div className="kelly-grid">
         <article className="kelly-card">
           <span className="kelly-card__label">Kelly Optimal</span>
