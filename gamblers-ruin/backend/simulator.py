@@ -6,6 +6,7 @@ import numpy as np
 def simulate_paths(p, bet_fraction, starting_capital, target, n_paths, max_steps):
     paths = []
     outcomes = []
+    ruin_threshold = float(starting_capital) * 0.01
 
     for _ in range(n_paths):
         bankroll = float(starting_capital)
@@ -21,11 +22,14 @@ def simulate_paths(p, bet_fraction, starting_capital, target, n_paths, max_steps
                 bankroll -= step_return
 
             bankroll = max(bankroll, 0.0)
-            path.append(bankroll)
 
-            if bankroll <= 0.0:
+            if bankroll <= ruin_threshold:
+                bankroll = 0.0
+                path.append(bankroll)
                 outcome = "ruin"
                 break
+
+            path.append(bankroll)
 
             if bankroll >= target:
                 outcome = "target"
