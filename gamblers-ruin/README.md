@@ -1,5 +1,24 @@
 # gamblers-ruin
 
+## Run With Docker
+
+From the project root:
+
+```bash
+docker compose up --build
+```
+
+Then open:
+
+- Frontend: `http://localhost:5173`
+- Backend health check: `http://localhost:8000/health`
+
+To stop everything:
+
+```bash
+Ctrl+C
+```
+
 ## Backend
 
 1. Change into the backend directory:
