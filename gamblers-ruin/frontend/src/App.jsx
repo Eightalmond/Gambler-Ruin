@@ -1,7 +1,8 @@
 import { useState } from "react";
 
+import KellyPanel from "./KellyPanel";
 import ParameterPanel, { buildInitialParams } from "./ParameterPanel";
-import PathsChart from "./PathsChart";
+import PathsChart, { StatsBar } from "./PathsChart";
 import Presets from "./Presets";
 
 export default function App() {
@@ -65,7 +66,16 @@ export default function App() {
       <main className="main-content">
         <div id="results" data-has-result={result ? "true" : "false"}>
           {result ? (
-            <PathsChart result={result} />
+            <div className="results-stack">
+              <StatsBar result={result} />
+              <KellyPanel
+                kelly_fraction={result.kelly_fraction}
+                bet_fraction={params.bet_fraction}
+                geometric_growth_rate={result.geometric_growth_rate}
+                simulated_ruin_rate={result.simulated_ruin_rate}
+              />
+              <PathsChart result={result} />
+            </div>
           ) : (
             <div className="results-empty">
               <p className="results-empty__eyebrow">Ready</p>

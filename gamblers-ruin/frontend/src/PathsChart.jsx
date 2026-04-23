@@ -51,23 +51,6 @@ export default function PathsChart({ result }) {
 
   return (
     <section className="results-panel">
-      <div className="stats-bar">
-        <div className="stats-pill stats-pill--ruin">
-          <span>🔴 Ruin</span>
-          <strong>
-            {result.n_ruin} paths ({toPercent(result.simulated_ruin_rate)})
-          </strong>
-        </div>
-        <div className="stats-pill stats-pill--target">
-          <span>🟢 Target</span>
-          <strong>{result.n_target} paths</strong>
-        </div>
-        <div className="stats-pill stats-pill--maxstep">
-          <span>⚪ Incomplete</span>
-          <strong>{result.n_maxstep} paths</strong>
-        </div>
-      </div>
-
       <div className="chart-card">
         <div className="chart-card__header">
           <div>
@@ -150,5 +133,26 @@ export default function PathsChart({ result }) {
         </div>
       </div>
     </section>
+  );
+}
+
+export function StatsBar({ result }) {
+  return (
+    <div className="stats-bar">
+      <div className="stats-pill stats-pill--ruin">
+        <span>🔴 Ruin</span>
+        <strong>
+          {result.n_ruin} paths ({toPercent(result.simulated_ruin_rate)})
+        </strong>
+      </div>
+      <div className="stats-pill stats-pill--target">
+        <span>🟢 Target</span>
+        <strong>{result.n_target} paths</strong>
+      </div>
+      <div className="stats-pill stats-pill--maxstep">
+        <span>⚪ Incomplete</span>
+        <strong>{result.n_maxstep} paths</strong>
+      </div>
+    </div>
   );
 }
