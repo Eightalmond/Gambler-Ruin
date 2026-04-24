@@ -1,5 +1,10 @@
 # gamblers-ruin
 
+"a gambler who raises his bet to a fixed fraction of their bankroll when he wins, but does not reduce it when he loses, will inevitably go broke"
+
+
+
+
 ## Run With Docker
 
 From the project root:
