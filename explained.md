@@ -31,3 +31,30 @@ Now imagine one win and one loss in any order:
 `1.40 × 0.60 = 0.84`
 
 You're down **16%** after breaking even on wins and losses. This is called **volatility drag** — the variance of your bets is eating your returns.
+
+---
+
+### Kelly's Criterion
+
+Kelly answers the question: what fraction of your bankroll should you bet to grow fastest?
+
+The formula is:
+
+`f* = p − q/b`
+
+Where `p = win probability`, `q = 1−p`, `b = net odds` (usually 1 for even bets).
+For `p=0.55`:
+
+`f* = 0.55 − 0.45 = 0.10`
+
+So bet exactly 10% of your bankroll each trade. This maximizes your long run growth rate.
+
+### The 5 Preset Values
+
+| Scenario | Edge ($p$) | Bet Size ($f$) | Description |
+| :--- | :---: | :---: | :--- |
+| 🔴 **Certain Ruin** | 0.40 | 0.40 | Bad edge **AND** overbetting. Growth rate is deeply negative. Almost every path collapses; the few survivors are pure luck. |
+| 🟠 **Likely Ruin** | 0.47 | 0.25 | Slight negative edge with moderate bets. Most paths slowly decay. A few lucky ones make it, but over more steps, even those would eventually fall. |
+| ⚪ **Coin Flip** | 0.50 | 0.15 | No edge. Pure random walk. Outcomes are entirely determined by luck and starting capital ratio. Some make it, most drift down. |
+| 🟡 **Fighting Chance** | 0.55 | 0.25 | Positive edge but overbetting above Kelly ($Kelly = 10\%$, you're betting $25\%$). Volatility drag is eating your returns. More paths survive than Coin Flip, but you're not extracting full value from your edge. |
+| 🟢 **Kelly Optimal** | 0.55 | 0.10 | Positive edge at exactly Kelly sizing. This is why 197/200 paths reach the target. The math is working for you, not against you. |
