@@ -82,3 +82,8 @@ You hit $0. Game over. In trading this means blowing up your account.
 
 - **Bet Size (f)** :
 The fraction of your bankroll you risk on each trade.
+
+
+<img width="1280" height="681" alt="Screenshot 2026-04-26 at 12 20 34 PM" src="https://github.com/user-attachments/assets/73ad8b99-57f4-4dff-9d90-9e41982f888a" />
+
+<img width="761" height="600" alt="Screenshot 2026-04-26 at 12 21 43 PM" src="https://github.com/user-attachments/assets/d556894a-47c9-40e9-8569-794786e7ba3c" />
