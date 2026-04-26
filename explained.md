@@ -65,3 +65,20 @@ So bet exactly 10% of your bankroll each trade. This maximizes your long run gro
 * **At Kelly:** Maximum long-run growth.
 * **Above Kelly but below 2× Kelly:** You still grow, but slower than Kelly due to volatility drag. You're leaving money on the table.
 * **Above 2× Kelly:** Growth rate goes negative. You will lose money in the long run despite having a positive edge. This is the **danger zone** your chart shows in red.
+
+## Key Terms
+
+- **Bankroll (B)** :
+Your current capital. You start with some amount, say $1000. Every bet either grows or shrinks it.
+
+- **Target (T)** :
+The goal you're trying to reach before going broke. Could be $2000 (double up), or just "survive 1000 trades."
+
+- **Edge (p)** :
+The probability your next bet wins
+
+- **Ruin** :
+You hit $0. Game over. In trading this means blowing up your account.
+
+- **Bet Size (f)** :
+The fraction of your bankroll you risk on each trade.
