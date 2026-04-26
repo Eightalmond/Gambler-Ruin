@@ -1,10 +1,12 @@
-# gamblers-ruin
+# Gamblers Ruin
 
 The "Question" :
 what is the probability you go broke before reaching your goal?
 
+<img width="1280" height="676" alt="Screenshot 2026-04-26 at 12 19 27 PM" src="https://github.com/user-attachments/assets/afda0d3a-6638-4f75-a704-fd53bd9090cc" />
 
 
+Check out `explained.md` for full explanation 
 
 ## Run With Docker
 
