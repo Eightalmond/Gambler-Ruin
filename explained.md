@@ -58,3 +58,10 @@ So bet exactly 10% of your bankroll each trade. This maximizes your long run gro
 | ⚪ **Coin Flip** | 0.50 | 0.15 | No edge. Pure random walk. Outcomes are entirely determined by luck and starting capital ratio. Some make it, most drift down. |
 | 🟡 **Fighting Chance** | 0.55 | 0.25 | Positive edge but overbetting above Kelly ($Kelly = 10\%$, you're betting $25\%$). Volatility drag is eating your returns. More paths survive than Coin Flip, but you're not extracting full value from your edge. |
 | 🟢 **Kelly Optimal** | 0.55 | 0.10 | Positive edge at exactly Kelly sizing. This is why 197/200 paths reach the target. The math is working for you, not against you. |
+
+### Key Insights from the Growth Rate Chart
+
+* **Below Kelly:** You grow, but slower than optimal. It is safer, though—many pros use "half-Kelly" deliberately.
+* **At Kelly:** Maximum long-run growth.
+* **Above Kelly but below 2× Kelly:** You still grow, but slower than Kelly due to volatility drag. You're leaving money on the table.
+* **Above 2× Kelly:** Growth rate goes negative. You will lose money in the long run despite having a positive edge. This is the **danger zone** your chart shows in red.
